@@ -32,7 +32,20 @@ function dateToTimestamp(date) {
  * Date(2015, 10, 20, 23, 15, 1) => '23:15:01'
  */
 function getTime(date) {
-  return new Date(date).toLocaleTimeString();
+  const time = new Date(date);
+  let hours = time.getHours();
+  let minutes = time.getMinutes();
+  let seconds = time.getSeconds();
+  if (hours <= 9) {
+    hours = `0${hours}`;
+  }
+  if (minutes <= 9) {
+    minutes = `0${minutes}`;
+  }
+  if (seconds <= 9) {
+    seconds = `0${seconds}`;
+  }
+  return `${hours}:${minutes}:${seconds}`;
 }
 
 /**
